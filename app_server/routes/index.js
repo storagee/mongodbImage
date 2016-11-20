@@ -4,7 +4,7 @@ var uploadController = require('../controllers/uploadController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('upload')
+  res.render('uploadPage')
 });
 
 router.post('/doUpload', function (req, res) {

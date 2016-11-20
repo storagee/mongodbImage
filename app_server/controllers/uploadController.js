@@ -31,8 +31,7 @@ module.exports.doUpload = function (req, res) {
         file.pipe(writeStream);
     }).on('finish', function () {
         // show a link to the uploaded file
-        res.writeHead(200, {'content-type': 'text/html'});
-        res.end('<a href="/imageList">上传成功，查看图片列表</a><br><a href="/">继续上传</a>');
+        res.render('uploadSuccess')
     });
 
     req.pipe(busboy);
