@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    h1 图片列表页
+    each id in ids
+        img(src='/image?imageId=' + id)

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 上传页
+    form(method='post' action='/uploaded' enctype='multipart/form-data')
+        input(type='file' name='testFile')
+        input(type='submit' value='上传')
