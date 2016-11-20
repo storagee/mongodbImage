@@ -32,7 +32,7 @@ module.exports.doUpload = function (req, res) {
     }).on('finish', function () {
         // show a link to the uploaded file
         res.writeHead(200, {'content-type': 'text/html'});
-        res.end('<a href="/image">查看图片</a>');
+        res.end('<a href="/imageList">上传成功，查看图片列表</a><br><a href="/">继续上传</a>');
     });
 
     req.pipe(busboy);
@@ -62,8 +62,8 @@ module.exports.getImage = function (req, res) {
     });
 };
 
-module.exports.getImageList = function (req, res) {
-    gfs.files.find({}, {'_id' : 1}).toArray(function (err, filesId) {
+var getImageList = function (req, res) {
+    gfs.files.find({}, {'_id' : 1}).sort({uploadDate: -1}).toArray(function (err, filesId) {
         // console.log(util.inspect(filesId, {showHidden: false, depth: null}));
         var filesIdArray = [];
         filesId.forEach(function (item) {
@@ -72,3 +72,5 @@ module.exports.getImageList = function (req, res) {
         res.render('imageList', {ids: filesIdArray});
     });
 };
+
+module.exports.getImageList = getImageList;

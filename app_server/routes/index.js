@@ -4,14 +4,10 @@ var uploadController = require('../controllers/uploadController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('upload')
 });
 
-router.get('/upload', function (req, res) {
-  res.render('upload');
-});
-
-router.post('/uploaded', function (req, res) {
+router.post('/doUpload', function (req, res) {
   uploadController.doUpload(req, res);
 });
 
