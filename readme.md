@@ -1,4 +1,4 @@
-# upload image using gridfs and busboy under node.js
+# upload image using gridfs and busboy baseon node.js
 
 ## demo:
 
